@@ -13,14 +13,26 @@ Integrantes: `Gustavo Biaso Dias Pinto, João Pedro Nogueira Lucas, Rhuan Campid
 
 <a name="visao-geral"></a>
 
+O Totus Tuus Ateliê é uma loja de artesanatos e artigos religiosos. O desenvolvimento do software proposto visa suprir as demandas da administração da loja, no que diz respeito à gestão de vendas, pessoas e estoque. 
 
+### Principais Funcionalidades:
+- Relatório de Vendas;
+- Relatório de Estoque;
+- Cadastro/Alteração/Exclusão de Produtos no Estoque;
+- Cadastro/Alteração/Exclusão de Vendas;
+- Gestão Financeira;
 
 ### Tipos de Usuários
 
-
+O sistema contará com um único usuário: o administrador do Ateliê, uma vez que o software será para apenas de uso em gerência, na gestão de estoque e vendas.
 
 ## Tecnologias Utilizadas
 
 <a name="tecnologias"></a>
 
+- Django (framework Python)
+- HTML
+- CSS
+- MySQL
 
+OBS: As versões de cada tecnologia serão definidas mais tarde
