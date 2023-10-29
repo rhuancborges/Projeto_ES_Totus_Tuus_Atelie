@@ -30,7 +30,8 @@ O sistema contará com um único usuário: o administrador do Ateliê, uma vez q
 
 <a name="tecnologias"></a>
 
-- Django (framework Python)
+- NodeJs (framework Javascript)
+- React
 - HTML
 - CSS
 - MySQL
