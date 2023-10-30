@@ -30,7 +30,8 @@ O sistema contará com um único usuário: o administrador do Ateliê, uma vez q
 
 <a name="tecnologias"></a>
 
-- NodeJs (framework Javascript)
+- NodeJs
+- AdonisJs
 - React
 - HTML
 - CSS
