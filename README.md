@@ -18,9 +18,12 @@ O Totus Tuus Ateliê é uma loja de artesanatos e artigos religiosos. O desenvol
 ### Principais Funcionalidades:
 - Relatório de Vendas;
 - Relatório de Estoque;
+- Relatório de Produtos;
+- Relatório de Clientes;
 - Cadastro/Alteração/Exclusão de Produtos no Estoque;
+- Cadastro/Alteração/Exclusão de Produtos;
 - Cadastro/Alteração/Exclusão de Vendas;
-- Gestão Financeira;
+- Cadastro/Alteração/Exclusão de Clientes;
 
 ### Tipos de Usuários
 
@@ -30,7 +33,9 @@ O sistema contará com um único usuário: o administrador do Ateliê, uma vez q
 
 <a name="tecnologias"></a>
 
-- Django (framework Python)
+- NodeJs
+- AdonisJs
+- React
 - HTML
 - CSS
 - MySQL
