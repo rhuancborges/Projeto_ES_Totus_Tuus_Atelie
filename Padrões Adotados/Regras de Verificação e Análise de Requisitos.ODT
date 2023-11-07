@@ -8,12 +8,10 @@ Universidade: Universidade Federal de Lavras (UFLA)
 
 	O presente documento informa a definição de regras a serem seguidas, consultadas e avaliadas no processo de verificação e análise de requisitos a fim de validar sua consistência para posterior implementação do sistema final.
 	
-    • Os requisitos devem ser definidos em frases completas e sucintas;
-    • Os requisitos devem ser definidos em linguagem clara e compreensível;
+    • Os requisitos devem ser definidos evitando, em suas definições, as palavras: “e”, “ou”, “somente”, “somente se”, “caso”, “mas”, “exceto”, “se necessário”, “frequentemente”, “geralmente”, “usualmente” e outras palavras sinonímias; 
     • Os requisitos devem ser definidos de forma atômica em cada sentença. Ou seja, definir um único requisito por vez;
     • Os requisitos devem seguir um padrão de codificação do tipo RFXXX ou RNFXXX (substituindo os caracteres X por algarismos numéricos a fim de estabelecer uma ordem);
     • Os requisitos que seguirem uma estrutura hierárquica devem ter acrescido à sua codificação de nomenclatura (conforme explicitado no item anterior) uma subdivisão. De forma genérica: RFXXX.YY ou RNFXXX.YY;
     • As sentenças de requisitos devem ser iniciadas com o seguinte padrão:
       “[RFXXX(.YY) ou RNFXXX(.YY)] – O software DEVE…”;
-    • O vocabulário utilizado na definição dos requisitos deve ser genérico
-        ? Caso seja necessário o uso de algum termo específico do sistema, deve ser definido um glossário;
+    • O vocabulário utilizado na definição dos requisitos deve ser fechado. Isto é, os termos utilizados na definição dos requisitos devem estar definidos no glossário.
