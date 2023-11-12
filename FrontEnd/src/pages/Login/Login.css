@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    background: url("../../assets/background.png") no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.rightContainer {
+    width: 50vw;
+    height: 100vh;
+    margin-left: auto;
+    background: rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.rightContainer .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 7vh;
+}
+
+.rightContainer .header img {
+    min-width: 180px;
+    width: 35vw;
+    height: auto;
+}
+
+.rightContainer form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.rightContainer form .inputContainer {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 4vh;
+}
+
+.rightContainer form .inputContainer label {
+    color: #FFF;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 1vw;
+}
+
+.rightContainer form .inputContainer input {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 16px;
+    min-width: 35vw;
+    width: 100%;
+    height: 6vh;
+    border: 2px solid #FFF;
+    border-radius: 20px;
+    background: transparent;
+    color: #FFF;
+}
+
+.rightContainer form button {
+    width: 100%;
+    height: 6vh;
+    flex-shrink: 0;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    border: 0;
+    background: #2B6EA1;
+
+    color: #FFF;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5vh;
+}
+
+.rightContainer form button:hover {
+    cursor: pointer;
+    background: #0481E0;
+}
