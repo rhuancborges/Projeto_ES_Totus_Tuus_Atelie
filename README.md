@@ -43,3 +43,17 @@ O sistema contará com um único usuário: o administrador do Ateliê, uma vez q
 - MySQL
 
 OBS: As versões de cada tecnologia serão definidas mais tarde
+
+## Diretórios do Repositório
+
+### BackEnd
+Nesse diretório, estão contidos os arquivos e programas relacionados à implementação do backend do projeto.
+
+### Frontend
+Nesse diretório, estão contidos os arquivos e programas relacionados à implementação do frontend do projeto
+
+### Padrões Adotados
+Nesse diretório, estão contidos os documentos que especificam as regras e padrões do projeto, tais como regras de definição de requisitos, regras de uso do Git, padrões de codificação, etc.
+
+### Requisitos
+Nesse diretório, estão contidos os documentos relacionados ao planejamento e projeto do sistema, tais como documento de requisitos, diagrama de banco de dados, diagrama de sequência, diagrama de classes, diagrama de infraestrutura, etc.
