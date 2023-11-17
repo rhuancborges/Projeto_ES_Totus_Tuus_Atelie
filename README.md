@@ -17,12 +17,14 @@ O Totus Tuus Ateliê é uma loja de artesanatos e artigos religiosos. O desenvol
 
 ### Principais Funcionalidades:
 - Relatório de Vendas;
-- Relatório de Estoque;
+- Relatório de Itens Pedidos;
 - Relatório de Produtos;
 - Relatório de Clientes;
-- Cadastro/Alteração/Exclusão de Produtos no Estoque;
+- Cadastro/Alteração/Exclusão de Itens Pedidos;
 - Cadastro/Alteração/Exclusão de Produtos;
+- Consulta de Produtos a partir do nome;
 - Cadastro/Alteração/Exclusão de Vendas;
+- Consulta de Vendas a partir de nome de Produto associado;
 - Cadastro/Alteração/Exclusão de Clientes;
 
 ### Tipos de Usuários
