@@ -24,7 +24,7 @@ O Totus Tuus Ateliê é uma loja de artesanatos e artigos religiosos. O desenvol
 - Cadastro/Alteração/Exclusão de Produtos;
   - Consulta de Produtos a partir do nome;
 - Cadastro/Alteração/Exclusão de Vendas;
-  - Consulta de Vendas a partir de nome de Produto associado;
+  - Consulta de Vendas a partir de nome de Cliente associado;
 - Cadastro/Alteração/Exclusão de Clientes;
 
 ### Tipos de Usuários
