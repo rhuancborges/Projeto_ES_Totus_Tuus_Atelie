@@ -50,7 +50,7 @@ OBS: As versões de cada tecnologia serão definidas mais tarde
 
 - Escrever mensagens de commits em Língua Portuguesa (Brasil);
 - Utilizar gerúndio na construção da mensagem de um commit:
-      - Ex: "Adicionando funcionalidade X"; "Atualizando funcionalidade Y"...
+  - Ex: "Adicionando funcionalidade X"; "Atualizando funcionalidade Y"...
 - Associar cada unidade de alteração a um único commit, de modo que cada mensagem de commit explicite bem as mudanças realizadas;
 - Quando necessário, incluir a palavra-chave "Close" na mensagem do commit para associá-lo ao fechamento de issue(s);
 - Manter uma separação de diretórios, isolando documentação do software de sua implementação;
