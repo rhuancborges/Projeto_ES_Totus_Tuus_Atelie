@@ -20,10 +20,10 @@ O Totus Tuus Ateliê é uma loja de artesanatos e artigos religiosos. O desenvol
 - Relatório de Estoque;
 - Relatório de Produtos;
 - Relatório de Clientes;
-- Cadastro/Alteração/Exclusão de Produtos no Estoque;
-- Cadastro/Alteração/Exclusão de Produtos;
-- Cadastro/Alteração/Exclusão de Vendas;
-- Cadastro/Alteração/Exclusão de Clientes;
+- Cadastro/Alteração/Consulta/Exclusão de Produtos no Estoque;
+- Cadastro/Alteração/Consulta/Exclusão de Produtos;
+- Cadastro/Alteração/Consulta/Exclusão de Vendas;
+- Cadastro/Alteração/Consulta/Exclusão de Clientes;
 
 ### Tipos de Usuários
 
@@ -33,11 +33,11 @@ O sistema contará com um único usuário: o administrador do Ateliê, uma vez q
 
 <a name="tecnologias"></a>
 
-- NodeJs
-- AdonisJs
-- React
-- HTML
-- CSS
-- MySQL
+- NodeJs v20.9.0
+- AdonisJs v5
+- React 
+- HTML 5
+- CSS 3
+- MySQL 8.2.4
 
 OBS: As versões de cada tecnologia serão definidas mais tarde
