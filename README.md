@@ -8,6 +8,8 @@ Integrantes: `Gustavo Biaso Dias Pinto, João Pedro Nogueira Lucas, Rhuan Campid
 
 - [Visão Geral](#visao-geral)
 - [Tecnologias Utilizadas](#tecnologias)
+- [Regras e Padrões de uso do Git](#regras-padroes)
+- [Diretórios do Repositório](#diretorios)
 
 ## Visão Geral
 
@@ -58,6 +60,8 @@ OBS: As versões de cada tecnologia serão definidas mais tarde
 - Nomear uma branch conforme modelo: "[frontend/backend] - [funcionalidade]".
 
 ## Diretórios do Repositório
+
+<a name="diretorios"></a>
 
 ### BackEnd
 Nesse diretório, estão contidos os arquivos e programas relacionados à implementação do backend do projeto.
