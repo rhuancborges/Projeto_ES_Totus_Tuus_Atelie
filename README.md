@@ -44,6 +44,17 @@ O sistema contará com um único usuário: o administrador do Ateliê, uma vez q
 
 OBS: As versões de cada tecnologia serão definidas mais tarde
 
+## Regras e Padrões de uso do Git
+
+<a name="regras-padroes"></a>
+
+- Escrever mensagens de commits em Língua Portuguesa (Brasil)
+- Associar cada unidade de alteração a um único commit, de modo que cada mensagem de commit explicite bem as mudanças realizadas
+- Quando necessário, incluir a palavra-chave "Close" na mensagem do commit para associá-lo ao fechamento de issue(s).
+- Manter uma separação de diretórios, isolando documentação do software de sua implementação.
+- Fazer o uso de branches para o desenvolvimento de novas funcionalidades
+- Nomear uma branch conforme modelo: "[frontend/backend] - [funcionalidade]".
+
 ## Diretórios do Repositório
 
 ### BackEnd
