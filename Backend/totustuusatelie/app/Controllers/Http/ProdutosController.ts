@@ -36,7 +36,7 @@ export default class ProdutosController {
             await produto.delete()
             return produto;
         } catch(error){
-            response.status(500).send("Erro ao excluir livro!");
+            response.status(500).send("Erro ao excluir produto!");
         }
 
     }
