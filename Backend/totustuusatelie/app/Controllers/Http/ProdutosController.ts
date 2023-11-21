@@ -14,6 +14,11 @@ export default class ProdutosController {
         return produtos;
     }
 
+    public async todos({}: HttpContextContract) {
+        return Produto.all()
+    }
+
+
     public async store({ request, response }: HttpContextContract) {
         try {
             const data = {
