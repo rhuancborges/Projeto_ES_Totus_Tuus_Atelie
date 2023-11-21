@@ -26,5 +26,6 @@ Route.group(() => {
     Route.get('/produto/:id', 'ProdutosController.index')
     Route.post('/produto', 'ProdutosController.store')
     Route.patch('/produto/:id', 'ProdutosController.update')
+    Route.delete('/produto/:id', 'ProdutosController.destroy')
 })
 

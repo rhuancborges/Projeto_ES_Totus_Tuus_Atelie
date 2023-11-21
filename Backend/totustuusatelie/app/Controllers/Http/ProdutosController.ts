@@ -34,7 +34,7 @@ export default class ProdutosController {
         try {
             const produto = await Produto.findOrFail(params.id);
             await produto.delete()
-            return produto;
+            return response.send("Deletado com sucesso!");;
         } catch (error) {
             response.status(500).send("Erro ao excluir produto!");
         }
