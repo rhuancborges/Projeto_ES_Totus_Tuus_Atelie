@@ -21,4 +21,10 @@
 import Route from '@ioc:Adonis/Core/Route'
 
 Route.get('/', 'HomeController.index')
-Route.get('/produto', 'ProdutosController.index')
+
+Route.group(() => {
+    Route.get('/produto/:id', 'ProdutosController.index')
+    Route.post('/produto', 'ProdutosController.store')
+    Route.patch('/produto/:id', 'ProdutosController.update')
+})
+

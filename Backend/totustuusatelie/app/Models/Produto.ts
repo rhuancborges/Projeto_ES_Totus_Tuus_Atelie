@@ -14,5 +14,5 @@ export default class Produto extends BaseModel {
   public categoria: String
 
   @column()
-  public quantidade_estoque: Number
+  public quantidade: Number
 }
