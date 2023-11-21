@@ -9,6 +9,7 @@ Integrantes: `Gustavo Biaso Dias Pinto, João Pedro Nogueira Lucas, Rhuan Campid
 - [Visão Geral](#visao-geral)
 - [Tecnologias Utilizadas](#tecnologias)
 - [Regras e Padrões de uso do Git](#regras-padroes)
+- [Boas práticas de programação utilizadas](#boas-praticas)
 - [Diretórios do Repositório](#diretorios)
 
 ## Visão Geral
@@ -60,6 +61,8 @@ OBS: As versões de cada tecnologia serão definidas mais tarde
 - Nomear uma branch conforme modelo: "[frontend/backend] - [funcionalidade]".
 
 ## Boas práticas de programação seguidas neste projeto
+
+<a name="boas-praticas"></a>
 
 - Código identado
 - Variáveis nomeadas de maneira intuitiva
