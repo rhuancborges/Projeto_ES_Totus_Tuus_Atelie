@@ -59,6 +59,16 @@ OBS: As versões de cada tecnologia serão definidas mais tarde
 - Fazer o uso de branches para o desenvolvimento de novas funcionalidades;
 - Nomear uma branch conforme modelo: "[frontend/backend] - [funcionalidade]".
 
+## Boas práticas de programação seguidas neste projeto
+
+- Código identado
+- Variáveis nomeadas de maneira intuitiva
+- Funções nomeadas de maneira intuitiva
+- Código comentado (Apenas o essencial)
+- Declaração de variáveis sempre no início de funções
+- Quebrar comandos longos em comandos menores e mais simples
+- Utilização de try..catch..
+
 ## Diretórios do Repositório
 
 <a name="diretorios"></a>
