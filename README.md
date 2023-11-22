@@ -40,13 +40,11 @@ O sistema contará com um único usuário: o administrador do Ateliê, uma vez q
 
 - NodeJs v20.9.0
 - AdonisJs v5
-- React 
+- React v18.2.0
 - HTML 5
 - CSS 3
 - MySQL 8.2.4
-
-OBS: As versões de cada tecnologia serão definidas mais tarde
-
+  
 ## Regras e Padrões de uso do Git
 
 <a name="regras-padroes"></a>
