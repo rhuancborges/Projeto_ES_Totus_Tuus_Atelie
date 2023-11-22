@@ -70,7 +70,8 @@ OBS: As versões de cada tecnologia serão definidas mais tarde
 - Código comentado (Apenas o essencial)
 - Declaração de variáveis sempre no início de funções
 - Quebrar comandos longos em comandos menores e mais simples
-- Utilização de try..catch..
+- Funções/Métodos/Procedimentos implementados de forma coesa
+- Utilização de tratamento de exceções
 
 ## Diretórios do Repositório
 
