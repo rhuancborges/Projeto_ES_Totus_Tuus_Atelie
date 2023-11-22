@@ -30,5 +30,9 @@ Route.group(() => {
     Route.post('/produto', 'ProdutosController.store')
     Route.patch('/produto/:id', 'ProdutosController.update')
     Route.delete('/produto/:id', 'ProdutosController.destroy')
+
+    Route.post('/cliente', 'ClientesController.store')
+    Route.patch('/cliente/:id', 'ClientesController.update')
+    Route.delete('/cliente/:id', 'ClientesController.destroy')
 }).middleware('auth')
 
