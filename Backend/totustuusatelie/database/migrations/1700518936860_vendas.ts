@@ -5,15 +5,7 @@ export default class extends BaseSchema {
 
   public async up () {
     this.schema.createTable(this.tableName, (table) => {
-      table.increments('id')
-      table
-          .integer('id_item_pedido')
-          .unsigned()
-          .notNullable()
-          .references('id_produto')
-          .inTable('item_pedidos')
-          .onUpdate('CASCADE')
-          .onDelete('CASCADE')
+      table.increments('id_venda').primary()
       table
           .integer('id_cliente')
           .unsigned()
@@ -22,7 +14,8 @@ export default class extends BaseSchema {
           .inTable('clientes')
           .onUpdate('CASCADE')
           .onDelete('CASCADE')
-      table.integer('quantidade').notNullable()
+      table.integer('quantidade_total').notNullable()
+      table.integer('preco_total')
     })
   }
 

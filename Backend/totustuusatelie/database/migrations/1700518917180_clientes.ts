@@ -6,10 +6,10 @@ export default class extends BaseSchema {
   public async up () {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id_cliente').primary()
-      table.string('cpf').unique().notNullable()
-      table.string('nome')
-      table.string('telefone')
-      table.string('endereco')
+      table.string('cpf', 11).unique().notNullable()
+      table.string('nome', 50)
+      table.string('telefone', 11)
+      table.string('endereco', 50)
     })
   }
 

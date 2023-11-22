@@ -14,8 +14,16 @@ export default class extends BaseSchema {
           .onUpdate('CASCADE')
           .onDelete('CASCADE')
           .primary()
-      table.integer('quantidade')
+      table.integer('quantidade_pedida')
       table.integer('preco').notNullable()
+      table
+          .integer('id_venda')
+          .unsigned()
+          .notNullable()
+          .references('id_venda')
+          .inTable('vendas')
+          .onUpdate('CASCADE')
+          .onDelete('CASCADE')
     })
   }
 

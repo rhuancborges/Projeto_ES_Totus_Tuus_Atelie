@@ -25,7 +25,7 @@ export default class ProdutosController {
                 nome: request.input("nome"),
                 descricao: request.input("descricao"),
                 categoria: request.input("categoria"),
-                quantidade: request.input("quantidade"),
+                quantidade_estoque: request.input("quantidade_estoque"),
             };
 
             const produto = await Produto.create({ ...data });
@@ -52,7 +52,7 @@ export default class ProdutosController {
             prod.nome = request.input('nome')
             prod.descricao = request.input('descricao')
             prod.categoria = request.input('categoria')
-            prod.quantidade = request.input('quantidade')
+            prod.quantidade_estoque = request.input('quantidade_estoque')
             await prod.save()
             return response.send("Foi alterado com sucesso!");
         } else {
