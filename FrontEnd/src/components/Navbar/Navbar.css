@@ -1,0 +1,57 @@
+.slogan {
+    background-color: #E08904;
+    padding: 10px 100px;
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.containerNav {
+    background-color: #FFF;
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.dentroNav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 100px;
+}
+
+.logoNav img {
+    height: auto;
+    width: 180px;
+}
+
+.botoesNav {
+    list-style: none;
+    display: flex;
+    padding-left: 10vw;
+}
+
+.botaoNav {
+    margin-left: 6vw;
+}
+
+.botaoNav a {
+    text-decoration: none;
+    color: #324D61;
+    font-size: 22px;
+    font-weight: 500;
+    word-wrap: break-word;
+}
+
+@media (max-width: 1100px) {
+    .botoesNav {
+        padding-left: 30px;
+    }
+
+    .botaoNav {
+        margin-left: 30px;
+    }
+}

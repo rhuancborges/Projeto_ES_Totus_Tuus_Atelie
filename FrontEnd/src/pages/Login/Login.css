@@ -1,20 +1,23 @@
 * {
+    overflow: hidden;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+.containerLogin {
+    background: url("../../assets/background.png") no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    overflow: hidden;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
 }
 
-body {
-    background: url("../../assets/background.png") no-repeat center center fixed;
-    background-size: cover;
-    height: 100vh;
-    overflow: hidden;
-}
-
-.rightContainer {
+.rightContainerLogin {
     width: 50vw;
-    height: 100vh;
+    min-height: 100vh;
     margin-left: auto;
     background: rgba(255, 255, 255, 0.10);
     backdrop-filter: blur(10px);
@@ -24,33 +27,33 @@ body {
     flex-direction: column;
 }
 
-.rightContainer .header {
+.rightContainerLogin .headerLogin {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 7vh;
 }
 
-.rightContainer .header img {
+.rightContainerLogin .headerLogin img {
     min-width: 180px;
     width: 35vw;
     height: auto;
 }
 
-.rightContainer form {
+.rightContainerLogin form {
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-.rightContainer form .inputContainer {
+.rightContainerLogin form .inputContainerLogin {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
     margin-bottom: 4vh;
 }
 
-.rightContainer form .inputContainer label {
+.rightContainerLogin form .inputContainerLogin label {
     color: #FFF;
     font-size: 20px;
     font-style: normal;
@@ -59,7 +62,7 @@ body {
     margin-bottom: 1vw;
 }
 
-.rightContainer form .inputContainer input {
+.rightContainerLogin form .inputContainerLogin input {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -73,7 +76,7 @@ body {
     color: #FFF;
 }
 
-.rightContainer form button {
+.rightContainerLogin form button {
     width: 100%;
     height: 6vh;
     flex-shrink: 0;
@@ -95,7 +98,7 @@ body {
     margin-top: 5vh;
 }
 
-.rightContainer form button:hover {
+.rightContainerLogin form button:hover {
     cursor: pointer;
     background: #0481E0;
 }

@@ -1,0 +1,14 @@
+body {
+    height: 100%;
+    margin: 0;
+    background-color: #324D61;
+}
+
+.tituloPagina {
+    font-size: 35px;
+    font-weight: 600;
+    margin: 40px 0;
+    color: #fff;
+    text-align: center;
+    justify-content: center;
+}
