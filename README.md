@@ -67,11 +67,12 @@ OBS: As versões de cada tecnologia serão definidas mais tarde
 - Código identado
 - Variáveis nomeadas de maneira intuitiva
 - Funções nomeadas de maneira intuitiva
+- Utilizar notação CamelCase para nomear variáveis, funções, métodos, procedimentos, classes, etc.
 - Código comentado (Apenas o essencial)
 - Declaração de variáveis sempre no início de funções
 - Quebrar comandos longos em comandos menores e mais simples
 - Funções/Métodos/Procedimentos implementados de forma coesa
-- Utilização de tratamento de exceções
+- Utilização de tratamento de exceções (blocos try..catch..)
 
 ## Diretórios do Repositório
 
@@ -79,9 +80,11 @@ OBS: As versões de cada tecnologia serão definidas mais tarde
 
 ### BackEnd
 Nesse diretório, estão contidos os arquivos e programas relacionados à implementação do backend do projeto.
+  - Contém arquivo .gitignore
 
 ### Frontend
 Nesse diretório, estão contidos os arquivos e programas relacionados à implementação do frontend do projeto
+  - Contém arquivo .gitignore
 
 ### Padrões Adotados
 Nesse diretório, estão contidos os documentos que especificam as regras e padrões do projeto, tais como regras de definição de requisitos, regras de uso do Git, padrões de codificação, etc.
