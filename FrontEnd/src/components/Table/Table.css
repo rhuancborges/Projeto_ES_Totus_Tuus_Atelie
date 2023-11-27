@@ -37,7 +37,7 @@ td {
     display: flex;
     align-items: column;
     justify-content: space-between;
-    background-color: #005975;
+    background-color: #2B6EA1;
     color: white;
     border-radius: 0 0 12px 12px;
     height: 5vh;
@@ -54,6 +54,7 @@ td {
     justify-content: right;
     margin-right: 5vw;
     margin-top: 1vh;
+    cursor: pointer;
 }
 
 .table-add-link {

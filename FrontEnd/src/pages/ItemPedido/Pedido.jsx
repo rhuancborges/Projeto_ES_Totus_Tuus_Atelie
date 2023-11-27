@@ -3,7 +3,8 @@ import './Pedido.css';
 import Navbar from '../../components/Navbar/Navbar';
 
 function Pedido() {
-    return ( <div>
+    return ( 
+    <div className='paginaCliente'>
         <Navbar />
         <h1 className='tituloPagina'>GERENCIAR ITEM_PEDIDO</h1>
     </div>

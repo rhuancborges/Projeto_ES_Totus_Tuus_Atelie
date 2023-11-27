@@ -7,7 +7,7 @@ function Navbar() {
         <div className="slogan">
             Mãos que Criam, Corações que Creem!
         </div>
-        <div class="containerNav">
+        <div className="containerNav">
             <div className="dentroNav">
                 <div className="logoNav">
                     <img src={logo} alt="Totus Tuus Atêlie" />

@@ -3,7 +3,8 @@ import './Venda.css';
 import Navbar from '../../components/Navbar/Navbar';
 
 function Venda() {
-    return ( <div>
+    return ( 
+    <div className='paginaVenda'>
         <Navbar />
         <h1 className='tituloPagina'>GERENCIAR VENDA</h1>
     </div>

@@ -1,5 +1,6 @@
-import logo from '../../assets/logo.png'
-import './Login.css'
+import React from 'react';
+import './Login.css';
+import logo from '../../assets/logo.png';
 import { Link } from "react-router-dom";
 // import { useState } from "react";
 // import { Navigate } from "react-router-dom";
@@ -13,7 +14,7 @@ function Login() {
     // };
 
     return (
-        <div className="containerLogin">
+        <div className="paginaLogin">
             <div className="rightContainerLogin">
                 <header className="headerLogin">
                     <img src={logo} alt="Totus Tuus Ateliê" />

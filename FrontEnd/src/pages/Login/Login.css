@@ -4,7 +4,18 @@
     text-decoration: none;
 }
 
-.containerLogin {
+html, body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.paginaVenda {
+    height: 100vh;
+    margin: 0;
+    background-color: #324D61;
+}
+.paginaLogin {
     background: url("../../assets/background.png") no-repeat center center fixed;
     background-size: cover;
     min-height: 100vh;
