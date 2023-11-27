@@ -23,10 +23,10 @@ import Route from '@ioc:Adonis/Core/Route'
 Route.get('/', 'HomeController.index')
 Route.post('/login', 'AuthController.login')
 Route.post('/register', 'AuthController.register')
+Route.get('/produto','ProdutosController.todos')
 
 Route.group(() => {
     Route.get('/produto/:id', 'ProdutosController.index')
-    Route.get('produto','ProdutosController.todos')
     Route.post('/produto', 'ProdutosController.store')
     Route.patch('/produto/:id', 'ProdutosController.update')
     Route.delete('/produto/:id', 'ProdutosController.destroy')
