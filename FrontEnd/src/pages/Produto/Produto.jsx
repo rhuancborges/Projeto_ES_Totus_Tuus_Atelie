@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import './Produto.css';
 import axios from 'axios';
 import Navbar from '../../components/Navbar/Navbar';
-import Table from "../../components/Table/Table";
-import items from "../../components/Table/itens.json";
+import Tabela from "../../components/Tabela/Tabela";
+import items from "../../components/Tabela/itens.json";
 
 const columnMapping = {
     id_produto: "Id_Produto",
@@ -30,7 +30,7 @@ function Produto() {
             <Navbar />
             <h1 className="tituloPagina">GERENCIAR PRODUTO</h1>
             <div className="corpoProduto">
-                <Table columnMapping={columnMapping} data={res} />
+                <Tabela columnMapping={columnMapping} data={res} />
             </div>
         </div>
     )

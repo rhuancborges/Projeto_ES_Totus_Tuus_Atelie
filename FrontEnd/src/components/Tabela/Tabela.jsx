@@ -1,14 +1,13 @@
 import { useState } from "react";
-import "./Table.css";
-import lapis from "../../assets/editar.png";
-import lixeira from "../../assets/excluir.png";
+import "./Tabela.css";
+import iconeEditar from "../../assets/editar.png";
+import iconeExcluir from "../../assets/excluir.png";
 import seta from "../../assets/seta.png";
 import ModalRemover from "../Modal/ModalRemover";
 import ModalAlterar from "../Modal/ModalAlterar";
 import ModalCadastrar from "../Modal/ModalCadastrar";
-import { Link } from "react-router-dom";
 
-function Table(props) {
+function Tabela(props) {
     const [index, setIndex] = useState(1);
     const [startIndex, setStartIndex] = useState(0);
     let rowsNumber = 10;
@@ -59,27 +58,26 @@ function Table(props) {
     };
 
     const handleConfirm = () => {
-        // Lógica para confirmar a ação
         console.log("confirm");
         closeModal();
     };
 
     return (
-        <div className="table-content">
+        <div className="tabelaContainer">
             <div>
                 <table>
                     <thead>
                         <tr>
                             {Object.values(props.columnMapping).map((columnName, index) =>
                                 index === 0 ? (
-                                    <th className="first-th" key={index}>
+                                    <th className="primeiraColunaCabecalho" key={index}>
                                         {columnName}
                                     </th>
                                 ) : (
                                     <th key={index}>{columnName}</th>
                                 )
                             )}
-                            <th className="last-th">Ações</th>
+                            <th className="ultimaColunaCabecalho">Ações</th>
                         </tr>
                     </thead>
 
@@ -95,15 +93,15 @@ function Table(props) {
                                         )}
                                         <td>
                                             <img
-                                                src={lixeira}
-                                                alt="lixeira"
-                                                className="table-icon"
+                                                src={iconeExcluir}
+                                                alt="iconeExcluir"
+                                                className="tabelaIcone"
                                                 onClick={() => openModal(item.id, 'remover')}
                                             ></img>
                                             <img
-                                                src={lapis}
-                                                alt="lapis"
-                                                className="table-icon"
+                                                src={iconeEditar}
+                                                alt="iconeEditar"
+                                                className="tabelaIcone"
                                                 onClick={() => openModal(item.id, 'alterar')}
                                             ></img>
                                         </td>
@@ -122,15 +120,15 @@ function Table(props) {
                                         )}
                                         <td>
                                             <img
-                                                src={lixeira}
-                                                alt="lixeira"
-                                                className="table-icon"
+                                                src={iconeExcluir}
+                                                alt="iconeExcluir"
+                                                className="tabelaIcone"
                                                 onClick={() => openModal(item.id, 'remover')}
                                             ></img>
                                             <img
-                                                src={lapis}
-                                                alt="lapis"
-                                                className="table-icon"
+                                                src={iconeEditar}
+                                                alt="iconeEditar"
+                                                className="tabelaIcone"
                                                 onClick={() => openModal(item.id, 'alterar')}
                                             ></img>
                                         </td>
@@ -141,16 +139,15 @@ function Table(props) {
                     </tbody>
                 </table>
             </div>
-            <div className="table-footer">
-                <div className="table-pages-count">
-                    <span>Página </span>
-                    <div className="dropdown">
-                        <button className="dropbtn">
+            <div className="tabelaRodape">
+                <div className="contagemPaginas">
+                    <p>Página</p>
+                    <div className="controleDropdown">
+                        <button className="botaoDropdown">
                             {index}{" "}
-                            <img src={seta} alt="seta" className="table-icon-seta"></img>
+                            <img src={seta} alt="seta" className="tabelaIconeSeta"></img>
                         </button>
-
-                        <div className="dropdown-content">
+                        <div className="menuDropdown">
                             {pagesIndex.map((i) => (
                                 <button key={i} onClick={() => updateIndexAndArray(i)}>
                                     {i}
@@ -159,8 +156,8 @@ function Table(props) {
                         </div>
                     </div>
                 </div>
-                <div className="table-add-link">
-                    <span className="table-add-button" onClick={() => openModal(null, 'adicionar')}>+ adicionar</span>
+                <div className="containerAdicionar">
+                    <span className="botaoAdicionar" onClick={() => openModal(null, 'adicionar')}>+ adicionar</span>
                 </div>
             </div>
             <div>
@@ -191,4 +188,4 @@ function Table(props) {
     );
 }
 
-export default Table;
+export default Tabela;
