@@ -13,7 +13,6 @@ export default class extends BaseSchema {
           .inTable('produtos')
           .onUpdate('CASCADE')
           .onDelete('CASCADE')
-          .primary()
       table.integer('quantidade_pedida')
       table.integer('preco').notNullable()
       table
