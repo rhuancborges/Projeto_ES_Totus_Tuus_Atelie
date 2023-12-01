@@ -35,8 +35,6 @@ Route.group(() => {
     Route.patch('/cliente/:id', 'ClientesController.update')
     Route.delete('/cliente/:id', 'ClientesController.destroy')
 
-    Route.post('/itempedido', 'ItensPedidosController.store')
-
     Route.get('/venda/:id', 'VendasController.index')
     Route.post('/venda', 'VendasController.store')
     Route.patch('/venda/:id', 'VendasController.update')
