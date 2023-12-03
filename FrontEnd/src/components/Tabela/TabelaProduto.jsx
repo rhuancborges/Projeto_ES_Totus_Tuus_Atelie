@@ -4,10 +4,10 @@ import iconeEditar from "../../assets/editar.png";
 import iconeExcluir from "../../assets/excluir.png";
 import seta from "../../assets/seta.png";
 import ModalRemover from "../Modal/ModalRemover";
-import ModalAlterar from "../Modal/ModalAlterar";
-import ModalCadastrar from "../Modal/ModalCadastrar";
+import ModalAlterarProduto from "../Modal/ModalAlterarProduto";
+import ModalCadastrarProduto from "../Modal/ModalCadastrarProduto";
 
-function Tabela(props) {
+function TabelaProduto(props) {
     const [index, setIndex] = useState(1);
     const [startIndex, setStartIndex] = useState(0);
     let rowsNumber = 10;
@@ -37,6 +37,7 @@ function Tabela(props) {
                     <td></td>
                     <td></td>
                     <td></td>
+                    <td></td>
                 </tr>
             );
         }
@@ -46,11 +47,18 @@ function Tabela(props) {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [idDelete, setIdDelete] = useState(-1);
     const [actionType, setActionType] = useState(null);
+    const [produtoAtual, setProdutoAtual] = useState({});
 
     const openModal = (id, type) => {
         setIsModalOpen(true);
         setIdDelete(id);
         setActionType(type);
+    };
+
+    const openModalAlterar = (produto) => {
+        setProdutoAtual(produto);
+        setIsModalOpen(true);
+        setActionType('alterar');
     };
 
     const closeModal = () => {
@@ -102,7 +110,7 @@ function Tabela(props) {
                                                 src={iconeEditar}
                                                 alt="iconeEditar"
                                                 className="tabelaIcone"
-                                                onClick={() => openModal(item.id, 'alterar')}
+                                                onClick={() => openModalAlterar(item)}
                                             ></img>
                                         </td>
                                     </tr>
@@ -129,7 +137,7 @@ function Tabela(props) {
                                                 src={iconeEditar}
                                                 alt="iconeEditar"
                                                 className="tabelaIcone"
-                                                onClick={() => openModal(item.id, 'alterar')}
+                                                onClick={() => openModalAlterar(item)}
                                             ></img>
                                         </td>
                                     </tr>
@@ -170,14 +178,15 @@ function Tabela(props) {
                     />
                 )}
                 {isModalOpen && actionType === 'alterar' && (
-                    <ModalAlterar
+                    <ModalAlterarProduto
                         isOpen={isModalOpen}
                         onClose={closeModal}
                         onConfirm={handleConfirm}
+                        produtoAtual={produtoAtual}
                     />
                 )}
                 {isModalOpen && actionType === 'adicionar' && (
-                    <ModalCadastrar
+                    <ModalCadastrarProduto
                         isOpen={isModalOpen}
                         onClose={closeModal}
                         onConfirm={handleConfirm}
@@ -188,4 +197,4 @@ function Tabela(props) {
     );
 }
 
-export default Tabela;
+export default TabelaProduto;

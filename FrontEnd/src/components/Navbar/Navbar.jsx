@@ -20,7 +20,7 @@ function Navbar() {
                         <Link to="/cliente">Cliente</Link>
                     </li>
                     <li className="botaoNav">
-                        <Link to="/pedido">Pedido</Link>
+                        <Link to="/itempedido">Pedido</Link>
                     </li>
                     <li className="botaoNav">
                         <Link to="/venda">Venda</Link>

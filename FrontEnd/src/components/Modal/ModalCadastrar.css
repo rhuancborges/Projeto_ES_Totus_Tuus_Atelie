@@ -1,0 +1,98 @@
+.janelaModalCadastrar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contentModalCadastrar {
+    background-color: #0481E0;
+    border-radius: 30px;
+    max-width: 80vw;
+    text-align: center;
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.50);
+}
+
+.tituloModalCadastrar {
+    color: #FFF;
+    font-size: 35px;
+    font-weight: 600;
+    margin: 5vh 4vw 5vh 4vw;
+}
+
+.formModalCadastrar {
+    color: #FFF;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 113.5%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 4vw 2vh 4vw;
+    min-width: 300px;
+    max-width: 500px;
+}
+
+.formModalCadastrar label {
+    margin-bottom: 1vh;
+    text-align: left;
+}
+
+.formModalCadastrar input {
+    text-decoration: none;
+    width: 100%;
+    height: 5vh;
+    border-radius: 20px;
+    background: #FFF;
+    border: #0481E0;
+    padding: 0 2vw 0 2vw;
+    color: #0481E0;
+    font-size: 15px;
+}
+
+.mensagemError {
+    color: rgb(146, 0, 0);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 113.5%;
+    margin: 1vh 0 1vh 0;
+}
+
+.botoesModal {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+}
+
+.botaoCancelar {
+    margin: 2vh 2vw 4vh 0;
+    font-weight: 500;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.botaoCancelar:hover {
+    text-decoration: underline;
+}
+
+.botaoConfirmar {
+    margin: 2vh 5vw 4vh 0;
+    color: #FFF;
+    text-align: center;
+    font-weight: 500;
+    font-size: 15px;
+    background-color: #E08904;
+    border-radius: 30px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 1vh 1vw 1vh 1vw;
+    cursor: pointer;
+    border: none;
+}

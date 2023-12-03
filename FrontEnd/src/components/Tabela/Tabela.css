@@ -61,8 +61,6 @@ td {
 .contagemPaginas {
     margin-left: 4vw;
     display: flex;
-    align-items: center;
-    height: 100%;
 }
 
 .contagemPaginas p {
@@ -79,6 +77,7 @@ td {
     display: flex;
     justify-content: space-between;
     padding: 0.5vh 1.1vw;
+    margin-top: 1.5vh;
 }
 
 .controleDropdown {
@@ -88,15 +87,13 @@ td {
 
 .menuDropdown {
     display: none;
-    position: absolute;
+    position: fixed;
     background-color: #fff;
-    width: 3vw;
+    width: 4vw;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    left: 50%;
     border: 1px solid #000;
     border-bottom: none;
-    transform: translateX(-50%);
     text-align: center;
 }
 

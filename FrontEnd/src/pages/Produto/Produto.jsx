@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import './Produto.css';
 import axios from 'axios';
 import Navbar from '../../components/Navbar/Navbar';
-import Tabela from "../../components/Tabela/Tabela";
-import items from "../../components/Tabela/itens.json";
+import TabelaProduto from "../../components/Tabela/TabelaProduto";
+import items from "../../components/Tabela/itensProduto.json";
 
 const columnMapping = {
     id_produto: "Id_Produto",
@@ -14,7 +14,6 @@ const columnMapping = {
 };
 
 function Produto() {
-    // Integração com o backend fazendo requisição get
     const [res, setRes] = useState([]);
     const getRes = () => {
         axios.get("http://127.0.0.1:3333/produto").then(res => {
@@ -30,7 +29,8 @@ function Produto() {
             <Navbar />
             <h1 className="tituloPagina">GERENCIAR PRODUTO</h1>
             <div className="corpoProduto">
-                <Tabela columnMapping={columnMapping} data={res} />
+                <TabelaProduto columnMapping={columnMapping} data={items} />
+                {/* res */}
             </div>
         </div>
     )
