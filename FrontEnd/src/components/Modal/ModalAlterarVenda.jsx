@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import "./ModalAlterar.css";
 import api from "../../services/api"
 
-const ModalAlterarVenda = ({ isOpen, onClose, onConfirm, vendaAtual, id}) => {
+const ModalAlterarVenda = ({ isOpen, onClose, onConfirm, vendaAtual, id }) => {
     const [formData, setFormData] = useState({
         id_cliente: vendaAtual.id_cliente,
         quantidade_total: vendaAtual.quantidade_total,
         preco_total: vendaAtual.preco_total,
+        produtos: [], // Adicionado o estado para armazenar a lista de produtos
     });
 
     const [formErrors, setFormErrors] = useState({});
@@ -70,6 +71,45 @@ const ModalAlterarVenda = ({ isOpen, onClose, onConfirm, vendaAtual, id}) => {
         }
     };
 
+    const [produtoList, setProdutoList] = useState([]); // Estado para armazenar a lista de produtos
+    
+    useEffect(() => {
+        async function fetchProdutos() {
+            try {
+                const response = await api.get('/produtos', {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem('token')}`,
+                    },
+                });
+                setProdutoList(response.data);
+            } catch (error) {
+                console.error('Erro ao obter a lista de produtos', error);
+            }
+        }
+        fetchProdutos();
+    }, []);
+    
+    const handleProdutoCadastradoChange = (e) => {
+        const selectedProdutoId = e.target.value;
+
+        setFormData((prevData) => ({
+            ...prevData,
+            produtos: [
+                {
+                    ...prevData.produtos[0],
+                    id_produto: selectedProdutoId,
+                },
+            ],
+        }));
+
+        console.log(`Produto cadastrado selecionado: ${selectedProdutoId}`);
+    };
+
+    const handleDropdownSelection = () => {
+        const selectedProdutoId = formData.produtos[0]?.id_produto;
+        console.log(`Produto selecionado: ${selectedProdutoId}`);
+    };
+
     return (
         <>
             {isOpen && (
@@ -118,6 +158,32 @@ const ModalAlterarVenda = ({ isOpen, onClose, onConfirm, vendaAtual, id}) => {
                                 {formErrors.preco_total && (
                                     <p className="mensagemError">{formErrors.preco_total}</p>
                                 )}
+                            </div>
+
+                            <div className="formModalAlterar">
+                                <label>Produtos Cadastrados</label>
+                                <div>
+                                    <select
+                                        className="formModalAlterar"
+                                        onChange={handleProdutoCadastradoChange}
+                                        defaultValue={formData.produtos[0]?.id_produto || ""}
+                                    >
+                                        <option value="" disabled>
+                                            Selecione um produto
+                                        </option>
+                                        {produtoList.map((produto) => (
+                                            <option key={produto.id} value={produto.id}>
+                                                {produto.nome}
+                                            </option>
+                                        ))}
+                                    </select>
+                                    <button
+                                        className="dropdownButton"
+                                        onClick={handleDropdownSelection}
+                                    >
+                                        Selecionar
+                                    </button>
+                                </div>
                             </div>
                         </form>
 
