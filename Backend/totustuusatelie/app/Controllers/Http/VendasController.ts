@@ -2,15 +2,8 @@ import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Venda from 'App/Models/Venda';
 
 export default class VendasController {
-    public async index({ params }: HttpContextContract) {
-
-        const id_buscado = params.id;
-
-        const vendas = await Venda
-            .query()
-            .where('id_venda', id_buscado);
-
-        return vendas;
+    public async index({}: HttpContextContract) {
+        return Venda.all()
     }
 
     public async store({ request, response }: HttpContextContract) {
@@ -25,7 +18,7 @@ export default class VendasController {
             const produtos = await request.input("produtos");
 
             for (var index = 0; index < produtos.length; index++) {
-                await venda.related('produtos').attach([produtos[index].id_produto]);
+                await venda.related('produtos').attach({[produtos[index].id_produto]:{quantidade_pedida: produtos[index].quantidade_pedida, preco: produtos[index].preco}});
             }
 
             return venda;

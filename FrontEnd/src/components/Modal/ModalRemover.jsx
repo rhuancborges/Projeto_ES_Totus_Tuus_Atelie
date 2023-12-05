@@ -1,7 +1,8 @@
 import React, { FC, MouseEvent } from "react";
 import './ModalRemover.css';
+import api from "../../services/api"
 
-const ModalRemover = ({ isOpen, onClose, onConfirm, id }) => {
+const ModalRemover = ({ isOpen, onClose, onConfirm, id, tipo}) => {
     const handleCancel = () => {
         onClose();
     };
@@ -9,7 +10,56 @@ const ModalRemover = ({ isOpen, onClose, onConfirm, id }) => {
     const handleConfirmAction = () => {
         onConfirm();
         onClose();
-        console.log(id);
+        console.log(id)
+        if(tipo == "produto"){
+            delProd()
+        } else if(tipo == "cliente"){
+            delCliente()
+        } else if(tipo == "venda"){
+            delVenda()
+        } else if(tipo == "pedido"){
+            delPedido()
+        }
+    };
+
+    async function delProd() {
+        await api.delete(`/produto/${id}`,{
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+            }
+        }).then(res => {
+            console.log("Delete feito!");
+        });
+    };
+
+    async function delCliente() {
+        await api.delete(`/cliente/${id}`,{
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+            }
+        }).then(res => {
+            console.log("Delete feito!");
+        });
+    };
+
+    async function delVenda() {
+        await api.delete(`/venda/${id}`,{
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+            }
+        }).then(res => {
+            console.log("Delete feito!");
+        });
+    };
+
+    async function delPedido() {
+        await api.delete(`/pedido/${id.id_produto}/${id.id_venda}`,{
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+            }
+        }).then(res => {
+            console.log("Delete feito!");
+        });
     };
 
     const handleOverlayClick = (e) => {

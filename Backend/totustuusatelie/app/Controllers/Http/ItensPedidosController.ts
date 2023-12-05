@@ -1,22 +1,22 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+import ItemPedido from 'App/Models/ItemPedido'
 
-import Produto from "App/Models/Produto";
-
-export default class ProdutosController {
+export default class ItensPedidosController {
     public async index({}: HttpContextContract) {
-        return Produto.all()
+        const pedidos = await ItemPedido.query()
+        return pedidos;
     }
 
     public async store({ request, response }: HttpContextContract) {
         try {
             const data = {
-                nome: request.input("nome"),
-                descricao: request.input("descricao"),
-                categoria: request.input("categoria"),
-                quantidade_estoque: request.input("quantidade_estoque"),
+                id_produto: request.input("id_produto"),
+                id_venda: request.input("id_venda"),
+                preco: request.input("preco"),
+                quantidade_pedida: request.input("quantidade_pedida"),
             };
 
-            const produto = await Produto.create({ ...data });
+            const produto = await ItemPedido.create({ ...data });
             return produto;
         } catch (error) {
             response.status(500).send("Erro ao salvar novo produto!");
@@ -25,8 +25,8 @@ export default class ProdutosController {
 
     public async destroy({ params, response }: HttpContextContract) {
         try {
-            const produto = await Produto.findOrFail(params.id);
-            await produto.delete()
+            await ItemPedido.query().where('id_produto', params.idProd).where('id_venda', params.idVen).del();
+
             return response.send("Deletado com sucesso!");;
         } catch (error) {
             response.status(500).send("Erro ao excluir produto!");
@@ -34,15 +34,11 @@ export default class ProdutosController {
     }
 
     public async update({ request, response, params }: HttpContextContract) {
-        const prod = await Produto.findOrFail(params.id);
-        if (prod) {
-            prod.nome = request.input('nome')
-            prod.descricao = request.input('descricao')
-            prod.categoria = request.input('categoria')
-            prod.quantidade_estoque = request.input('quantidade_estoque')
-            await prod.save()
+        try {
+            await ItemPedido.query().where('id_produto', params.idProd).where('id_venda', params.idVen).update({preco: request.input("preco"), quantidade_pedida: request.input("quantidade_pedida")});
+            
             return response.send("Foi alterado com sucesso!");
-        } else {
+        } catch (error) {
             return response.send("Não foi encotrado o produto.");
         }
     }

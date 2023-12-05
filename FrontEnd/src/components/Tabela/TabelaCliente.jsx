@@ -104,7 +104,7 @@ function TabelaCliente(props) {
                                                 src={iconeExcluir}
                                                 alt="iconeExcluir"
                                                 className="tabelaIcone"
-                                                onClick={() => openModal(item.id, 'remover')}
+                                                onClick={() => openModal(item.id_cliente, 'remover')}
                                             ></img>
                                             <img
                                                 src={iconeEditar}
@@ -131,7 +131,7 @@ function TabelaCliente(props) {
                                                 src={iconeExcluir}
                                                 alt="iconeExcluir"
                                                 className="tabelaIcone"
-                                                onClick={() => openModal(item.id, 'remover')}
+                                                onClick={() => openModal(item.id_cliente, 'remover')}
                                             ></img>
                                             <img
                                                 src={iconeEditar}
@@ -175,11 +175,13 @@ function TabelaCliente(props) {
                         onClose={closeModal}
                         onConfirm={handleConfirm}
                         id={idDelete}
+                        tipo={"cliente"}
                     />
                 )}
                 {isModalOpen && actionType === 'alterar' && (
                     <ModalAlterarCliente
                         isOpen={isModalOpen}
+                        id={clienteAtual.id_cliente}
                         onClose={closeModal}
                         onConfirm={handleConfirm}
                         clienteAtual={clienteAtual}

@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./ModalAlterar.css";
+import api from "../../services/api"
 
 const ModalAlterarItemPedido = ({ isOpen, onClose, onConfirm, itemPedidoAtual }) => {
     const [formData, setFormData] = useState({
-        id_produto: itemPedidoAtual.id_produto,
         quantidade_pedida: itemPedidoAtual.quantidade_pedida,
         preco: itemPedidoAtual.preco,
-        id_venda: itemPedidoAtual.id_venda,
     });
 
     const [formErrors, setFormErrors] = useState({});
@@ -21,6 +20,16 @@ const ModalAlterarItemPedido = ({ isOpen, onClose, onConfirm, itemPedidoAtual })
 
     const handleCancel = () => {
         onClose();
+    };
+
+    async function patchPedido() {
+        await api.patch(`/pedido/${itemPedidoAtual.id_produto}/${itemPedidoAtual.id_venda}`, formData, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+            }
+        }).then(res => {
+            console.log("Patch feito!");
+        });
     };
 
     const handleConfirmAction = () => {
@@ -41,7 +50,7 @@ const ModalAlterarItemPedido = ({ isOpen, onClose, onConfirm, itemPedidoAtual })
         if (Object.keys(newErrors).length === 0) {
             onConfirm(formData);
             onClose();
-            console.log(formData);
+            patchPedido();
         }
     };
 
@@ -67,18 +76,6 @@ const ModalAlterarItemPedido = ({ isOpen, onClose, onConfirm, itemPedidoAtual })
                         <h1 className="tituloModalAlterar">ALTERAR ITEM_PEDIDO</h1>
 
                         <form>
-                            <div className="formModalAlterar">
-                                <label>Id_Produto</label>
-                                <input
-                                    type="number"
-                                    name="id_produto"
-                                    value={formData.id_produto}
-                                    onChange={handleInputChange}
-                                    className={`formInputModalAlterar ${formErrors.id_produto ? "error" : ""
-                                        }`}
-                                />
-                            </div>
-                            
                             <div className="formModalAlterar">
                                 <label>Quantidade_Pedida</label>
                                 <input
@@ -106,21 +103,6 @@ const ModalAlterarItemPedido = ({ isOpen, onClose, onConfirm, itemPedidoAtual })
                                 />
                                 {formErrors.preco && (
                                     <p className="mensagemError">{formErrors.preco}</p>
-                                )}
-                            </div>
-
-                            <div className="formModalAlterar">
-                                <label>Id_Venda</label>
-                                <input
-                                    type="number"
-                                    name="id_venda"
-                                    value={formData.id_venda}
-                                    onChange={handleInputChange}
-                                    className={`formInputModalAlterar ${formErrors.id_venda ? "error" : ""
-                                        }`}
-                                />
-                                {formErrors.id_venda && (
-                                    <p className="mensagemError">{formErrors.id_venda}</p>
                                 )}
                             </div>
                         </form>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./ModalAlterar.css";
+import api from "../../services/api"
 
 const ModalAlterarProduto = ({ isOpen, onClose, onConfirm, id, produtoAtual }) => {
     const [formData, setFormData] = useState({
@@ -21,6 +22,16 @@ const ModalAlterarProduto = ({ isOpen, onClose, onConfirm, id, produtoAtual }) =
 
     const handleCancel = () => {
         onClose();
+    };
+
+    async function patchProd() {
+        await api.patch(`/produto/${id}`, formData, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+            }
+        }).then(res => {
+            console.log("Patch feito!");
+        });
     };
 
     const handleConfirmAction = () => {
@@ -51,7 +62,7 @@ const ModalAlterarProduto = ({ isOpen, onClose, onConfirm, id, produtoAtual }) =
         if (Object.keys(newErrors).length === 0) {
             onConfirm(formData);
             onClose();
-            console.log(formData);
+            patchProd(formData);
         }
     };
 

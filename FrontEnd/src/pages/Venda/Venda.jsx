@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './Venda.css';
-import axios from 'axios';
 import Navbar from '../../components/Navbar/Navbar';
 import TabelaVenda from "../../components/Tabela/TabelaVenda";
-import items from "../../components/Tabela/itensVenda.json";
+import api from "../../services/api"
 
 const columnMapping = {
     id_venda: "Id_Venda",
@@ -14,21 +13,24 @@ const columnMapping = {
 
 function Venda() {
     const [res, setRes] = useState([]);
-    const getRes = () => {
-        axios.get("http://127.0.0.1:3333/venda").then(res => {
-            console.log(res);
+    async function getRes() {
+        await api.get("/venda",{
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+            }
+        }).then(res => {
             const resultado = res.data;
             setRes(resultado);
         });
     };
-    useEffect(() => getRes(), [])
+    useEffect(() => {getRes()}, [])
 
     return (
         <div className='paginaVenda'>
             <Navbar />
             <h1 className='tituloPagina'>GERENCIAR VENDA</h1>
             <div className="corpoVenda">
-                <TabelaVenda columnMapping={columnMapping} data={items} />
+                <TabelaVenda columnMapping={columnMapping} data={res} />
             </div>
         </div>
     )

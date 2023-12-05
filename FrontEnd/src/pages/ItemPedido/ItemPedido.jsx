@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './ItemPedido.css';
-import axios from 'axios';
 import Navbar from '../../components/Navbar/Navbar';
 import TabelaItemPedido from "../../components/Tabela/TabelaItemPedido";
-import items from "../../components/Tabela/itensItemPedido.json";
+import api from "../../services/api"
 
 const columnMapping = {
     id_produto: "Id_Produto",
@@ -12,24 +11,26 @@ const columnMapping = {
     id_venda: "Id_Venda",
 };
 
-
 function ItemPedido() {
     const [res, setRes] = useState([]);
-    const getRes = () => {
-        axios.get("http://127.0.0.1:3333/pedido").then(res => {
-            console.log(res);
+    async function getRes() {
+        await api.get("/pedido",{
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+            }
+        }).then(res => {
             const resultado = res.data;
             setRes(resultado);
         });
     };
-    useEffect(() => getRes(), [])
 
+    useEffect(() => {getRes()}, [])
     return (
         <div className='paginaItemPedido'>
             <Navbar />
             <h1 className='tituloPagina'>GERENCIAR ITEM_PEDIDO</h1>
             <div className="corpoItemPedido">
-                <TabelaItemPedido columnMapping={columnMapping} data={items} />
+                <TabelaItemPedido columnMapping={columnMapping} data={res} />
             </div>
         </div>
     )

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./ModalAlterar.css";
+import api from "../../services/api"
 
-const ModalAlterarCliente = ({ isOpen, onClose, onConfirm, clienteAtual }) => {
+const ModalAlterarCliente = ({ isOpen, onClose, onConfirm, id, clienteAtual }) => {
     const [formData, setFormData] = useState({
         cpf: clienteAtual.cpf,
         nome: clienteAtual.nome,
@@ -23,6 +24,16 @@ const ModalAlterarCliente = ({ isOpen, onClose, onConfirm, clienteAtual }) => {
 
     const handleCancel = () => {
         onClose();
+    };
+
+    async function patchCliente() {
+        await api.patch(`/cliente/${id}`, formData, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+            }
+        }).then(res => {
+            console.log("Patch feito!");
+        });
     };
 
     const handleConfirmAction = () => {
@@ -57,7 +68,7 @@ const ModalAlterarCliente = ({ isOpen, onClose, onConfirm, clienteAtual }) => {
         if (Object.keys(newErrors).length === 0) {
             onConfirm(formData);
             onClose();
-            console.log(formData);
+            patchCliente(id);
         }
     };
 

@@ -44,13 +44,12 @@ function TabelaItemPedido(props) {
     }
 
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [idDelete, setIdDelete] = useState(-1);
     const [actionType, setActionType] = useState(null);
     const [itemPedidoAtual, setItemPedidoAtual] = useState({});
 
     const openModal = (id, type) => {
         setIsModalOpen(true);
-        setIdDelete(id);
+        setItemPedidoAtual(id);
         setActionType(type);
     };
 
@@ -103,7 +102,7 @@ function TabelaItemPedido(props) {
                                                 src={iconeExcluir}
                                                 alt="iconeExcluir"
                                                 className="tabelaIcone"
-                                                onClick={() => openModal(item.id, 'remover')}
+                                                onClick={() => openModal(item, 'remover')}
                                             ></img>
                                             <img
                                                 src={iconeEditar}
@@ -130,7 +129,7 @@ function TabelaItemPedido(props) {
                                                 src={iconeExcluir}
                                                 alt="iconeExcluir"
                                                 className="tabelaIcone"
-                                                onClick={() => openModal(item.id, 'remover')}
+                                                onClick={() => openModal(item, 'remover')}
                                             ></img>
                                             <img
                                                 src={iconeEditar}
@@ -163,17 +162,15 @@ function TabelaItemPedido(props) {
                         </div>
                     </div>
                 </div>
-                <div className="containerAdicionar">
-                    <span className="botaoAdicionar" onClick={() => openModal(null, 'adicionar')}>+ adicionar</span>
-                </div>
             </div>
             <div>
                 {isModalOpen && actionType === 'remover' && (
                     <ModalRemover
-                        isOpen={isModalOpen}
+                        isOpen={isModalOpen}x
                         onClose={closeModal}
                         onConfirm={handleConfirm}
-                        id={idDelete}
+                        id={itemPedidoAtual}
+                        tipo={"pedido"}
                     />
                 )}
                 {isModalOpen && actionType === 'alterar' && (

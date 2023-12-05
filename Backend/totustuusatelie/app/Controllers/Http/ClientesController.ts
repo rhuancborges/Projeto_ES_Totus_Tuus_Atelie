@@ -2,6 +2,10 @@ import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Cliente from 'App/Models/Cliente';
 
 export default class ClientesController {
+    public async index({}: HttpContextContract) {
+        return Cliente.all()
+    }
+    
     public async store({ request, response }: HttpContextContract) {
         try {
             const data = {

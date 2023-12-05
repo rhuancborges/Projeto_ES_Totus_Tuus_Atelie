@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './Cliente.css';
-import axios from 'axios';
 import Navbar from '../../components/Navbar/Navbar';
 import TabelaCliente from "../../components/Tabela/TabelaCliente";
-import items from "../../components/Tabela/itensCliente.json";
+import api from "../../services/api"
 
 const columnMapping = {
     id_cliente: "Id_Cliente",
@@ -16,21 +15,24 @@ const columnMapping = {
 
 function Cliente() {
     const [res, setRes] = useState([]);
-    const getRes = () => {
-        axios.get("http://127.0.0.1:3333/cliente").then(res => {
-            console.log(res);
+    async function getRes() {
+        await api.get("/cliente",{
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+            }
+        }).then(res => {
             const resultado = res.data;
             setRes(resultado);
         });
     };
-    useEffect(() => getRes(), [])
+    useEffect(() => {getRes()}, [])
 
     return (
         <div className='paginaCliente'>
             <Navbar />
             <h1 className='tituloPagina'>GERENCIAR CLIENTE</h1>
             <div className="corpoCliente">
-                <TabelaCliente columnMapping={columnMapping} data={items} />
+                <TabelaCliente columnMapping={columnMapping} data={res} />
             </div>
         </div>
     )

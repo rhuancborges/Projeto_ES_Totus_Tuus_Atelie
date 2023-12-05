@@ -1,17 +1,24 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './Login.css';
 import logo from '../../assets/logo.png';
-import { Link } from "react-router-dom";
-// import { useState } from "react";
-// import { Navigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom'
+import useAuth from "../../hooks/auth"
 
 function Login() {
-    // const [autenticado, setAutenticado] = useState(false);
+    const [form, setForm] = useState({})
+    const navigate = useNavigate()
 
-    // const realizarLogin = () => {
-    //     //validar usuario depois
-    //     setAutenticado(true);
-    // };
+    const { login } = useAuth();
+  
+    const handleLogin = async (event) => {
+        event.preventDefault();
+        login(form)
+        navigate('/produto')
+    }
+  
+    const handleChange = (event) => {
+      setForm({...form, [event.target.name]: event.target.value})
+    }
 
     return (
         <div className="paginaLogin">
@@ -22,19 +29,13 @@ function Login() {
                 <form>
                     <div className="inputContainerLogin">
                         <label htmlFor="usuario">Usuário</label>
-                        <input type="text" name="usuario" id="usuario" placeholder="user123" />
+                        <input type="text" onChange={handleChange} name="name" id="usuario" placeholder="user123" />
                     </div>
                     <div className="inputContainerLogin">
                         <label htmlFor="senha">Senha</label>
-                        <input type="password" name="senha" id="senha" placeholder="Min. 8 caracteres" />
+                        <input type="password" onChange={handleChange} name="password" id="senha" placeholder="Min. 8 caracteres" />
                     </div>
-                    {/* <div>
-                        <button onClick={realizarLogin}>
-                            {props.text}
-                        </button>
-                        {autenticado && <Navigate to="/produto" />}
-                    </div> */}
-                    <button><Link to="/produto" style={{textDecoration: 'none', color: '#FFF'}}>Login</Link></button>
+                    <button onClick={ handleLogin }>Login</button>
                 </form>
             </div>
         </div>

@@ -104,7 +104,7 @@ function TabelaProduto(props) {
                                                 src={iconeExcluir}
                                                 alt="iconeExcluir"
                                                 className="tabelaIcone"
-                                                onClick={() => openModal(item.id, 'remover')}
+                                                onClick={() => openModal(item.id_produto, 'remover')}
                                             ></img>
                                             <img
                                                 src={iconeEditar}
@@ -131,7 +131,7 @@ function TabelaProduto(props) {
                                                 src={iconeExcluir}
                                                 alt="iconeExcluir"
                                                 className="tabelaIcone"
-                                                onClick={() => openModal(item.id, 'remover')}
+                                                onClick={() => openModal(item.id_produto, 'remover')}
                                             ></img>
                                             <img
                                                 src={iconeEditar}
@@ -175,11 +175,13 @@ function TabelaProduto(props) {
                         onClose={closeModal}
                         onConfirm={handleConfirm}
                         id={idDelete}
+                        tipo={"produto"}
                     />
                 )}
                 {isModalOpen && actionType === 'alterar' && (
                     <ModalAlterarProduto
                         isOpen={isModalOpen}
+                        id={produtoAtual.id_produto}
                         onClose={closeModal}
                         onConfirm={handleConfirm}
                         produtoAtual={produtoAtual}

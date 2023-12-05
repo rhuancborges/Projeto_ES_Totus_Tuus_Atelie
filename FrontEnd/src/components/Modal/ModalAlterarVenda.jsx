@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./ModalAlterar.css";
+import api from "../../services/api"
 
-const ModalAlterarVenda = ({ isOpen, onClose, onConfirm, vendaAtual }) => {
+const ModalAlterarVenda = ({ isOpen, onClose, onConfirm, vendaAtual, id}) => {
     const [formData, setFormData] = useState({
         id_cliente: vendaAtual.id_cliente,
         quantidade_total: vendaAtual.quantidade_total,
@@ -23,6 +24,16 @@ const ModalAlterarVenda = ({ isOpen, onClose, onConfirm, vendaAtual }) => {
         onClose();
     };
 
+    async function patchVenda() {
+        await api.patch(`/venda/${id}`, formData, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+            }
+        }).then(res => {
+            console.log("Patch feito!");
+        });
+    };
+
     const handleConfirmAction = () => {
         const newErrors = {};
 
@@ -41,7 +52,7 @@ const ModalAlterarVenda = ({ isOpen, onClose, onConfirm, vendaAtual }) => {
         if (Object.keys(newErrors).length === 0) {
             onConfirm(formData);
             onClose();
-            console.log(formData);
+            patchVenda();
         }
     };
 

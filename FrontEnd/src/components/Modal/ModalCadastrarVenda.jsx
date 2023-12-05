@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./ModalCadastrar.css";
+import api from "../../services/api"
 
 const ModalCadastrarItemPedido = ({ isOpen, onClose, onConfirm, id }) => {
     const [formData, setFormData] = useState({
@@ -7,12 +8,29 @@ const ModalCadastrarItemPedido = ({ isOpen, onClose, onConfirm, id }) => {
         id_cliente: 0,
         quantidade_total: 0,
         preco_total: 0,
+        produtos: []
     });
+
+    const [selectedValue, setSelectedValue] = useState(1);
+
+    const handleDropdownChange = (e) => {
+        setSelectedValue(parseInt(e.target.value, 10));
+    };
 
     const [formErrors, setFormErrors] = useState({});
 
     const handleCancel = () => {
         onClose();
+    };
+
+    async function postVenda() {
+        await api.post(`/venda`, formData, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+            }
+        }).then(res => {
+            console.log("Cadastro feito!");
+        });
     };
 
     const handleConfirmAction = () => {
@@ -31,7 +49,7 @@ const ModalCadastrarItemPedido = ({ isOpen, onClose, onConfirm, id }) => {
         if (Object.keys(newErrors).length === 0) {
             onConfirm(formData);
             onClose();
-            console.log(formData);
+            postVenda();
         }
     };
 
@@ -40,6 +58,14 @@ const ModalCadastrarItemPedido = ({ isOpen, onClose, onConfirm, id }) => {
         setFormData((prevData) => ({
             ...prevData,
             [name]: value,
+        }));
+    };
+
+    const handleInputChangeArray = (e) => {
+        const { name, value } = e.target;
+        setFormData((prevData) => ({
+            ...prevData,
+            
         }));
     };
 
@@ -68,7 +94,7 @@ const ModalCadastrarItemPedido = ({ isOpen, onClose, onConfirm, id }) => {
                                         }`}
                                 />
                             </div>
-                            
+
                             <div className="formModalCadastrar">
                                 <label>Quantidade_Total</label>
                                 <input
@@ -97,6 +123,45 @@ const ModalCadastrarItemPedido = ({ isOpen, onClose, onConfirm, id }) => {
                                 {formErrors.preco_total && (
                                     <p className="mensagemError">{formErrors.preco_total}</p>
                                 )}
+                            </div>
+
+                            <div className="formModalCadastrar">
+                                <label>Quantidade de Produtos</label>
+                                <select className="formModalCadastrar" id="dropdown" onChange={handleDropdownChange} value={selectedValue}>
+                                    {[...Array(10)].map((_, index) => (
+                                        <option key={index + 1} value={index + 1}>
+                                            {index + 1}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+
+                            <div className="formModalCadastrar">
+                                {[...Array(selectedValue)].map((_, index) => (
+                                    <div>
+                                    <input
+                                        name="id_produto"
+                                        key={index}
+                                        onChange={handleInputChangeArray}
+                                        type="number"
+                                        placeholder={`Id do Produto${index + 1}`}
+                                    />
+                                    <input
+                                        name="quantidade_pedida"
+                                        key={index}
+                                        onChange={handleInputChangeArray}
+                                        type="number"
+                                        placeholder={`Quantidade Pedida${index + 1}`}
+                                    />
+                                    <input
+                                        name="preco"
+                                        key={index}
+                                        onChange={handleInputChangeArray}
+                                        type="number"
+                                        placeholder={`Preco ${index + 1}`}
+                                    />
+                                    </div>
+                                ))}
                             </div>
                         </form>
 

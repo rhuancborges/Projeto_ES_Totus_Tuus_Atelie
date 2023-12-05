@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./ModalCadastrar.css";
+import api from "../../services/api"
 
 const ModalCadastrarProduto = ({ isOpen, onClose, onConfirm, id }) => {
     const [formData, setFormData] = useState({
@@ -14,6 +15,16 @@ const ModalCadastrarProduto = ({ isOpen, onClose, onConfirm, id }) => {
 
     const handleCancel = () => {
         onClose();
+    };
+
+    async function postProd() {
+        await api.post(`/produto`, formData, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+            }
+        }).then(res => {
+            console.log("Cadastro feito!");
+        });
     };
 
     const handleConfirmAction = () => {
@@ -44,7 +55,7 @@ const ModalCadastrarProduto = ({ isOpen, onClose, onConfirm, id }) => {
         if (Object.keys(newErrors).length === 0) {
             onConfirm(formData);
             onClose();
-            console.log(formData);
+            postProd();
         }
     };
 
