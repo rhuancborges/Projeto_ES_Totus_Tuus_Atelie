@@ -64,8 +64,8 @@ function TabelaItemPedido(props) {
     };
 
     const handleConfirm = () => {
-        console.log("confirm");
         closeModal();
+        window.location.reload();
     };
 
     return (

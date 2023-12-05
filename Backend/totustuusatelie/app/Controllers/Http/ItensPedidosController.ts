@@ -11,9 +11,9 @@ export default class ItensPedidosController {
         try {
             const data = {
                 id_produto: request.input("id_produto"),
-                id_venda: request.input("id_venda"),
-                preco: request.input("preco"),
                 quantidade_pedida: request.input("quantidade_pedida"),
+                preco: request.input("preco"),
+                id_venda: request.input("id_venda"),
             };
 
             const produto = await ItemPedido.create({ ...data });

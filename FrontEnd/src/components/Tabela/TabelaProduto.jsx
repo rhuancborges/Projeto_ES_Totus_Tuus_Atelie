@@ -66,8 +66,8 @@ function TabelaProduto(props) {
     };
 
     const handleConfirm = () => {
-        console.log("confirm");
         closeModal();
+        window.location.reload();
     };
 
     return (

@@ -42,13 +42,6 @@ export default class VendasController {
         const venda = await Venda.findOrFail(params.id);
         try {
             if (venda) {
-                await venda.related('produtos').detach();
-                const produtos = await request.input("produtos");
-
-                for (var index = 0; index < produtos.length; index++) {
-                    await venda.related('produtos').attach([produtos[index].id_produto]);
-                }
-
                 venda.id_cliente = request.input('id_cliente')
                 venda.quantidade_total = request.input('quantidade_total')
                 venda.preco_total   = request.input('preco_total')
