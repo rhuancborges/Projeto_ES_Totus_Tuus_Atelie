@@ -55,7 +55,6 @@ O sistema contará com um único usuário: o administrador do Ateliê, uma vez q
 - Associar cada unidade de alteração a um único commit, de modo que cada mensagem de commit explicite bem as mudanças realizadas;
 - Quando necessário, incluir a palavra-chave "Close #? ..." na mensagem do commit para associá-lo ao fechamento de issue(s);
 - Manter uma separação de diretórios, isolando documentação do software de sua implementação;
-- Fazer o uso de branches para o desenvolvimento de novas funcionalidades;
 - Nomear uma branch conforme modelo: "[frontend/backend] - [funcionalidade]".
 
 ## Boas práticas de programação seguidas neste projeto
@@ -85,7 +84,10 @@ Nesse diretório, estão contidos os arquivos e programas relacionados à implem
   - Contém arquivo .gitignore
 
 ### Padrões Adotados
-Nesse diretório, estão contidos os documentos que especificam as regras e padrões do projeto, tais como regras de definição de requisitos, regras de uso do Git, padrões de codificação, etc.
+Nesse diretório, estão contidos os documentos que especificam as regras e padrões do projeto, tais como regras de definição de requisitos.
 
 ### Requisitos
 Nesse diretório, estão contidos os documentos relacionados ao planejamento e projeto do sistema, tais como documento de requisitos, diagrama de banco de dados, diagrama de sequência, diagrama de classes, diagrama de infraestrutura, etc.
+
+### Testes
+Nesse diretório, estão contidos os documentos relacionados à especificação e execução de testes de validação do sistema.
