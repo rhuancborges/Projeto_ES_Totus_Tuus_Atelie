@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./ModalCadastrar.css";
 import api from "../../services/api"
 
-const ModalCadastrarVenda = ({ isOpen, onClose, onConfirm, id }) => {
+const ModalCadastrarItemPedido = ({ isOpen, onClose, onConfirm, id }) => {
     const [formData, setFormData] = useState({
         id_venda: id,
         id_cliente: 0,
@@ -65,7 +65,7 @@ const ModalCadastrarVenda = ({ isOpen, onClose, onConfirm, id }) => {
         const { name, value } = e.target;
         setFormData((prevData) => ({
             ...prevData,
-
+            
         }));
     };
 
@@ -73,51 +73,6 @@ const ModalCadastrarVenda = ({ isOpen, onClose, onConfirm, id }) => {
         if (e.target === e.currentTarget) {
             onClose();
         }
-    };
-
-    const [produtoList, setProdutoList] = useState([]); // Estado para armazenar a lista de produtos
-
-    useEffect(() => {
-        async function fetchProdutos() {
-            try {
-                const response = await api.get('/produtos', {
-                    headers: {
-                        Authorization: `Bearer ${localStorage.getItem('token')}`,
-                    },
-                });
-                setProdutoList(response.data);
-            } catch (error) {
-                console.error('Erro ao obter a lista de produtos', error);
-            }
-        }
-
-        fetchProdutos();
-    }, []);
-
-    const handleDropdownSelection = () => {
-        // Aqui você deve pegar o produto selecionado e atualizar o estado
-        const selectedProdutoId = formData.produtos[0]?.id_produto;
-
-        // Realize as operações necessárias com o ID do produto selecionado
-        console.log(`Produto selecionado: ${selectedProdutoId}`);
-    };
-
-    const handleProdutoCadastradoChange = (e) => {
-        const selectedProdutoId = e.target.value;
-
-        // Atualize o estado dos produtos com o ID do produto selecionado
-        setFormData((prevData) => ({
-            ...prevData,
-            produtos: [
-                {
-                    ...prevData.produtos[0],
-                    id_produto: selectedProdutoId,
-                },
-            ],
-        }));
-
-        // Faça o que for necessário com o ID do produto selecionado
-        console.log(`Produto cadastrado selecionado: ${selectedProdutoId}`);
     };
 
     return (
@@ -184,52 +139,29 @@ const ModalCadastrarVenda = ({ isOpen, onClose, onConfirm, id }) => {
                             <div className="formModalCadastrar">
                                 {[...Array(selectedValue)].map((_, index) => (
                                     <div>
-                                        <input
-                                            name="id_produto"
-                                            key={index}
-                                            onChange={handleInputChangeArray}
-                                            type="number"
-                                            placeholder={`Id do Produto${index + 1}`}
-                                        />
-                                        <input
-                                            name="quantidade_pedida"
-                                            key={index}
-                                            onChange={handleInputChangeArray}
-                                            type="number"
-                                            placeholder={`Quantidade Pedida${index + 1}`}
-                                        />
-                                        <input
-                                            name="preco"
-                                            key={index}
-                                            onChange={handleInputChangeArray}
-                                            type="number"
-                                            placeholder={`Preco ${index + 1}`}
-                                        />
+                                    <input
+                                        name="id_produto"
+                                        key={index}
+                                        onChange={handleInputChangeArray}
+                                        type="number"
+                                        placeholder={`Id do Produto${index + 1}`}
+                                    />
+                                    <input
+                                        name="quantidade_pedida"
+                                        key={index}
+                                        onChange={handleInputChangeArray}
+                                        type="number"
+                                        placeholder={`Quantidade Pedida${index + 1}`}
+                                    />
+                                    <input
+                                        name="preco"
+                                        key={index}
+                                        onChange={handleInputChangeArray}
+                                        type="number"
+                                        placeholder={`Preco ${index + 1}`}
+                                    />
                                     </div>
                                 ))}
-                            </div>
-
-                            <div className="formModalCadastrar">
-                                <label>Produtos Cadastrados</label>
-                                <div>
-                                    <select
-                                        className="formModalCadastrar"
-                                        onChange={handleProdutoCadastradoChange}
-                                        defaultValue={formData.produtos[0]?.id_produto || ''}
-                                    >
-                                        <option value="" disabled>
-                                            Selecione um produto
-                                        </option>
-                                        {produtoList.map((produto) => (
-                                            <option key={produto.id} value={produto.id}>
-                                                {produto.nome}
-                                            </option>
-                                        ))}
-                                    </select>
-                                    <button className="dropdownButton" onClick={handleDropdownSelection}>
-                                        Selecionar
-                                    </button>
-                                </div>
                             </div>
                         </form>
 
@@ -248,4 +180,4 @@ const ModalCadastrarVenda = ({ isOpen, onClose, onConfirm, id }) => {
     );
 };
 
-export default ModalCadastrarVenda;
+export default ModalCadastrarItemPedido;
